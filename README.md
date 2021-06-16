@@ -30,7 +30,8 @@ Are there enough qualified, retirement-ready employees in the departments to men
 - As per below grouped up data, we have enough retirement ready employees in all department except "Manager" to mentor the next generation of Pewlett Hackard.
 <img width="890" alt="results" src="https://user-images.githubusercontent.com/83181834/121791346-c5934880-cb9d-11eb-8e43-e249d1622e4f.png">
 
-Lets look at "Manager" position. 
+### Additional insights
+1. Lets look at "Manager" position. 
 - There are 2 employees retiring in this position and no employee of this designation is found under mentorship table. As per below query & results, top 2 employees are retiring. Either we can pick bottom two employees as mentor ready although their birth_date cut off is close to our filter or promote existing employees who fits the birth_date criteria to "Manager" position and make them mentor ready.
 
 					SELECT e.emp_no,
@@ -47,3 +48,16 @@ Lets look at "Manager" position.
 					AND to_date = '9999-01-01'
 					ORDER BY e.birth_date, to_date desc;
 ![image](https://user-images.githubusercontent.com/83181834/121791487-fd4ec000-cb9e-11eb-9c59-e3a09903a06b.png)
+
+2. Lets take a look at total titles in Pewlett Hackard. As per below query, we have total of 7 titles in Pewlett Hackard. We have employees retiring under 6 titles except "Technique Leader".  There are lot of potential employees avaialbe in this title (~15159) who are eligible for promotion to fill any retirement roles. 
+
+					SELECT t.titles,
+					count(e.emp_no)
+					FROM
+					employees e INNER JOIN titles t
+					ON e.emp_no = t.emp_no
+					GROUP BY t.titles
+					ORDER BY t.titles DESC
+					
+<img width="278" alt="results_2" src="https://user-images.githubusercontent.com/83181834/122168697-749b8280-ce31-11eb-8e23-b3748e45e112.png">
+
