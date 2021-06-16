@@ -49,7 +49,7 @@ Are there enough qualified, retirement-ready employees in the departments to men
 					ORDER BY e.birth_date, to_date desc;
 ![image](https://user-images.githubusercontent.com/83181834/121791487-fd4ec000-cb9e-11eb-9c59-e3a09903a06b.png)
 
-2. Lets take a look at total titles in Pewlett Hackard. As per below query, we have total of 7 titles in Pewlett Hackard. We have employees retiring under 6 titles except "Technique Leader".  There are lot of potential employees avaialbe in this title (~15159) who are eligible for promotion to fill any retirement roles. 
+2. Lets take a look at total titles in Pewlett Hackard. As per below query, we have total of 7 designations in Pewlett Hackard. We have employees retiring under 6 designations except "Technique Leader".  There are lot of potential employees avaialbe in this designation (~15159) who are eligible for promotion to fill any retirement roles. 
 
 					SELECT t.titles,
 					count(e.emp_no)
